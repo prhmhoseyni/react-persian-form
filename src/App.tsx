@@ -1,32 +1,34 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import PersianForm from "./components/template/PersianForm.tsx";
 
 function App() {
-    const [count, setCount] = useState(0);
-
     return (
-        <>
-            <div>
-                <a href="https://vite.dev" target="_blank">
-                    <img src={viteLogo} className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://react.dev" target="_blank">
-                    <img src={reactLogo} className="logo react" alt="React logo" />
-                </a>
-            </div>
-
-            <h1>Vite + React</h1>
-
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-        </>
+        <div className="h-dvh p-4">
+            <PersianForm
+                variant="secondary"
+                fields={[
+                    { type: "text", name: "text", label: "نام", md: 6 },
+                    { type: "space", md: 6 },
+                    { type: "cellphone", name: "cellphone", label: "شماره تلفن", md: 4 },
+                    { type: "numeric", name: "numeric", label: "کدملی", md: 4 },
+                    { type: "number", name: "number", label: "طبقه", md: 4 },
+                    { type: "amount", name: "amount", label: "مبلغ", md: 6 },
+                    {
+                        type: "select",
+                        name: "select",
+                        label: "وضعیت تاهل",
+                        options: [
+                            { label: "وضعیت تاهل", value: "" },
+                            { label: "مجرد", value: "1" },
+                            { label: "متاهل", value: "2" },
+                            { label: "جدا شده", value: "2" },
+                        ],
+                        md: 6,
+                    },
+                    { type: "textarea", name: "textarea", label: "آدرس" },
+                ]}
+                onSubmit={(data) => console.log(data)}
+            />
+        </div>
     );
 }
 

@@ -1,68 +1,278 @@
-:root {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
+@import "tailwindcss";
 
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
-
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-}
-a:hover {
-    color: #535bf2;
-}
-
-body {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
     margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
 }
 
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
 }
 
-button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-}
-button:hover {
-    border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * :::: config ::::
+ */
+
+:root {
+    --persian-form-background-primary: 255, 255, 255;
+    --persian-form-background-secondary: 245, 245, 245;
+
+    --persian-form-prose-primary: 39, 41, 55;
+    --persian-form-prose-hint: 180, 180, 185;
+    --persian-form-prose-disabled: 180, 180, 185;
+
+    --persian-form-brand: 72, 164, 234;
+
+    --persian-form-error: 241, 56, 14;
 }
 
-@media (prefers-color-scheme: light) {
-    :root {
-        color: #213547;
-        background-color: #ffffff;
-    }
-    a:hover {
-        color: #747bff;
-    }
-    button {
-        background-color: #f9f9f9;
-    }
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * :::: form control ::::
+ */
+
+.form-control {
+    width: 100%;
+    min-height: 3rem;
+    padding-inline: 0.75rem;
+    outline: none;
+    border-radius: 0.5rem;
+    color: rgb(var(--persian-form-prose-primary));
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.225rem;
+    transition: all ease-in-out 0.3s;
+}
+
+select.form-control {
+    /* :::: customize arrow left :::: */
+    -moz-appearance: none;
+    /* :::: Firefox :::: */
+    -webkit-appearance: none;
+    /* :::: Safari and Chrome :::: */
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='18' viewBox='0 -960 960 960' width='18'><path d='M480-345 240-585l43-43 197 198 197-197 43 43-240 239Z'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 0.5rem;
+    background-position-y: 0.9rem;
+    padding-left: 2.5rem;
+    padding-block: 0.64rem;
+}
+
+textarea.form-control {
+    height: fit-content;
+    padding: 0.75rem;
+    resize: none;
+}
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * :::: variants ::::
+ */
+
+.form-control {
+    background-color: rgb(var(--persian-form-background-primary));
+    border: 1.5px solid #ededed;
+}
+
+.form-control.form-control-secondary {
+    background-color: rgb(var(--persian-form-background-secondary));
+    border: 1.5px solid #e6e6e6;
+}
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * :::: firefox ::::
+ */
+
+.form-control:focus-visible,
+.form-control:focus-within {
+    outline: none !important;
+}
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * :::: placeholder & focus ::::
+ */
+
+.form-control::placeholder {
+    color: rgb(var(--persian-form-prose-hint));
+}
+
+.form-control:focus {
+    border-color: rgb(var(--persian-form-brand));
+    box-shadow:
+        0px 0px 0px 1px rgb(var(--persian-form-background-primary)),
+        0px 0px 0px 4px rgba(var(--persian-form-brand), 0.14);
+}
+
+.form-control:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * :::: has error ::::
+ */
+
+.form-control--has-error {
+    background-color: color-mix(in srgb, var(--persian-form-error), #ffffff 90%) !important;
+    border-color: rgb(var(--persian-form-error)) !important;
+}
+
+.form-control--has-error:focus {
+    box-shadow:
+        0 0 0 4px rgba(var(--persian-form-error), 0.24),
+        0 0 0 4px rgb(var(--persian-form-background-secondary)) !important;
+}
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * :::: checkbox ::::
+ */
+
+input[type="checkbox"].form-control {
+    -webkit-appearance: none;
+    padding: 0;
+    appearance: none;
+    min-width: 1.25rem;
+    width: 1.25rem;
+    min-height: 1.25rem;
+    height: 1.25rem;
+    background-color: rgb(var(--persian-form-background-secondary));
+    border: 1px solid #eef0f2;
+    /* TODO: read from theme */
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    transition: 240ms transform linear;
+}
+
+input[type="checkbox"].form-control:checked {
+    border-color: var(--persian-form-brand);
+    background-color: var(--persian-form-brand);
+}
+
+input[type="checkbox"].form-control:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+input[type="checkbox"].form-control:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * :::: before ::::
+ */
+
+input[type="checkbox"].form-control::before {
+    content: "";
+    width: 0.625rem;
+    height: 0.625rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 120ms transform linear;
+}
+
+/**
+ * :::: default ::::
+ */
+
+input[type="checkbox"].form-control::before {
+    background-image: url('data:image/svg+xml,<svg width="11" height="8" viewBox="0 0 11 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.00002 4.09142L3.75278 6.8442L9.597 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+/**
+ * :::: indeterminate ::::
+ */
+
+input[type="checkbox"][data-indeterminate="true"].form-control::before {
+    background-image: url('data:image/svg+xml,<svg width="10" height="2" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 1H8.5" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+/**
+ * :::: checked ::::
+ */
+
+input[type="checkbox"].form-control:checked::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * :::: radio ::::
+ */
+
+input[type="radio"].form-control {
+    -webkit-appearance: none;
+    padding: 0;
+    appearance: none;
+    min-width: 1.25rem;
+    width: 1.25rem;
+    min-height: 1.25rem;
+    height: 1.25rem;
+    background-color: rgb(var(--persian-form-background-secondary));
+    border: 1px solid #eef0f2;
+    /* TODO: read from theme */
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    transition: 240ms transform linear;
+}
+
+input[type="radio"].form-control:checked {
+    border-color: rgb(var(--persian-form-brand));
+    background-color: rgb(var(--persian-form-brand));
+}
+
+input[type="radio"].form-control:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+input[type="radio"].form-control:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ * :::: before ::::
+ */
+
+input[type="radio"].form-control::before {
+    content: "";
+    width: 0.47rem;
+    height: 0.47rem;
+    position: absolute;
+    background-color: rgb(var(--persian-form-background-secondary));
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 120ms transform linear;
+}
+
+/**
+ * :::: checked ::::
+ */
+
+input[type="radio"].form-control:checked::before {
+    transform: translate(-50%, -50%) scale(1);
 }
