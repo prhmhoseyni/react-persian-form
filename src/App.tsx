@@ -1,4 +1,10 @@
 import PersianForm from "./components/template/PersianForm.tsx";
+import yup from "./config/yup.config.ts";
+
+const validation = yup.object({
+    text: yup.string().required("Required"),
+    cellphone: yup.string().required(),
+});
 
 function App() {
     return (
@@ -27,6 +33,7 @@ function App() {
                     { type: "textarea", name: "textarea", label: "آدرس" },
                 ]}
                 onSubmit={(data) => console.log(data)}
+                validation={validation}
             />
         </div>
     );
