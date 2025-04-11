@@ -28,10 +28,14 @@ export type FormField =
     | TextField<"text">
     | TextField<"numeric">
     | TextField<"cellphone">
+    | TextField<"bank-card">
+    | TextField<"sheba">
     | TextField<"number">
     | TextField<"amount">
+    | TextField<"date">
     | TextField<"textarea">
-    | SelectField<"select">;
+    | SelectField<"select">
+    | SelectField<"bottom-sheet-select">;
 
 export interface FormFieldProps<T> extends InputHTMLAttributes<T> {
     name: string;

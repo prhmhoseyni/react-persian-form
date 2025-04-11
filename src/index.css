@@ -1,4 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap");
 @import "tailwindcss";
+
+* {
+    font-family: "Vazirmatn", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -103,9 +110,8 @@ textarea.form-control {
 
 .form-control:focus {
     border-color: rgb(var(--persian-form-brand));
-    box-shadow:
-        0px 0px 0px 1px rgb(var(--persian-form-background-primary)),
-        0px 0px 0px 4px rgba(var(--persian-form-brand), 0.14);
+    box-shadow: 0px 0px 0px 1px rgb(var(--persian-form-background-primary)),
+    0px 0px 0px 4px rgba(var(--persian-form-brand), 0.14);
 }
 
 .form-control:disabled {
@@ -124,9 +130,8 @@ textarea.form-control {
 }
 
 .form-control--has-error:focus {
-    box-shadow:
-        0 0 0 4px rgba(var(--persian-form-error), 0.24),
-        0 0 0 4px rgb(var(--persian-form-background-secondary)) !important;
+    box-shadow: 0 0 0 4px rgba(var(--persian-form-error), 0.24),
+    0 0 0 4px rgb(var(--persian-form-background-secondary)) !important;
 }
 
 /**
