@@ -7,6 +7,8 @@ import Text from "../molecules/Text.tsx";
 import Textarea from "../molecules/Textarea.tsx";
 import Select from "../molecules/Select.tsx";
 import Number from "../molecules/Number.tsx";
+import BankCard from "../molecules/BankCard.tsx";
+import Sheba from "../molecules/Sheba.tsx";
 import { FormField } from "../../types";
 
 interface Props {
@@ -52,6 +54,8 @@ export default function PersianFormFields(props: Props) {
                         {type === "text" && <Text name={name} control={props.control} variant={props.variant} />}
                         {type === "numeric" && <Numeric name={name} control={props.control} variant={props.variant} />}
                         {type === "cellphone" && <Cellphone name={name} control={props.control} variant={props.variant} />}
+                        {type === "bank-card" && <BankCard name={name} control={props.control} variant={props.variant} />}
+                        {type === "sheba" && <Sheba name={name} control={props.control} variant={props.variant} />}
                         {type === "number" && <Number name={name} control={props.control} variant={props.variant} />}
                         {type === "amount" && <Amount name={name} control={props.control} variant={props.variant} />}
                         {type === "textarea" && <Textarea name={name} control={props.control} variant={props.variant} />}

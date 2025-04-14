@@ -17,6 +17,8 @@ function App() {
                     { type: "cellphone", name: "cellphone", label: "شماره تلفن", md: 4 },
                     { type: "numeric", name: "numeric", label: "کدملی", md: 4 },
                     { type: "number", name: "number", label: "طبقه", md: 4 },
+                    { type: "bank-card", name: "bank_card", label: "شماره کارت", md: 6 },
+                    { type: "sheba", name: "sheba", label: "شبا", md: 6 },
                     { type: "amount", name: "amount", label: "مبلغ", md: 6 },
                     {
                         type: "select",

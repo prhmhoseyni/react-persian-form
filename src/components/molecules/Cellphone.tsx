@@ -9,7 +9,7 @@ export default function Cellphone(props: FormFieldProps<HTMLInputElement>) {
 
         return (value ?? "").split("").reduce((acc, cur, currentIndex) => {
             // format-cellphone-number
-            acc += (currentIndex === 4 || currentIndex === 7 ? " " : "") + cur;
+            acc += ([4, 7].includes(currentIndex) ? " " : "") + cur;
             return acc;
         }, "");
     }
