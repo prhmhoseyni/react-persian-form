@@ -1,11 +1,30 @@
 {
   "name": "react-persian-form",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.1",
   "type": "module",
+  "main": "./dist/react-persian-form.cjs.js",
+  "module": "./dist/react-persian-form.es.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/react-persian-form.es.js",
+      "types": "./dist/main.d.ts"
+    },
+    "./styles": {
+      "import": "./dist/react-persian-form.css",
+      "require": "./dist/react-persian-form.css"
+    },
+    "./datepicker": {
+      "import": "./dist/datepicker.css",
+      "require": "./dist/datepicker.css"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc --p ./tsconfig.build.json && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
@@ -21,7 +40,8 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.62.0",
-    "tailwindcss": "^4.1.12"
+    "tailwindcss": "^4.1.12",
+    "vite-plugin-dts": "^4.5.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
