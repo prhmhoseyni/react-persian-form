@@ -6,6 +6,7 @@ import PersianFieldCellphone from "./components/PersianField/Cellphone";
 import PersianFieldEmail from "./components/PersianField/Email";
 import PersianFieldNumber from "./components/PersianField/Number";
 import PersianFieldNumeric from "./components/PersianField/Numeric";
+import PersianFieldSelect from "./components/PersianField/Select";
 
 function App() {
     const formMethods = useForm({
@@ -20,7 +21,7 @@ function App() {
     });
 
     return (
-        <form onSubmit={onSubmit} className="flex flex-col gap-4">
+        <form onSubmit={onSubmit} className="flex flex-col gap-4 p-8">
             <PersianFieldText
                 label="Text"
                 name="text"
@@ -66,6 +67,18 @@ function App() {
                 name="numeric"
                 placeholder="numeric"
                 control={formMethods.control}
+                startAdornment={<Trash size={15} />}
+            />
+
+            <PersianFieldSelect
+                label="Select"
+                name="select"
+                placeholder="select"
+                control={formMethods.control}
+                options={[
+                    { label: "یک مورد را انتخاب کنید", value: "" },
+                    { label: "پرهام حسینی", value: "PRHM" },
+                ]}
                 startAdornment={<Trash size={15} />}
             />
 
