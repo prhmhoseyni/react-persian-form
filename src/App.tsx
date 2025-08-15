@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { Trash } from "lucide-react";
 import PersianFieldText from "./components/PersianField/Text";
 import PersianFieldAmount from "./components/PersianField/Amount";
+import PersianFieldCellphone from "./components/PersianField/Cellphone";
 
 function App() {
     const formMethods = useForm({
@@ -29,6 +30,14 @@ function App() {
                 label="Amount"
                 name="amount"
                 placeholder="amount"
+                control={formMethods.control}
+                startAdornment={<Trash size={15} />}
+            />
+
+            <PersianFieldCellphone
+                label="Cellphone"
+                name="cellphone"
+                placeholder="cellphone"
                 control={formMethods.control}
                 startAdornment={<Trash size={15} />}
             />
