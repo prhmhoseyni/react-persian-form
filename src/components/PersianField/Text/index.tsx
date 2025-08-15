@@ -1,6 +1,6 @@
 import { toEnglishDigits } from "msk-utils";
 import Input from "~/common/Input";
-import { type PersianFormFieldProps } from "~/components/PersianField/types";
+import type { PersianFormFieldProps } from "../types";
 
 /**
  * @name formatValue

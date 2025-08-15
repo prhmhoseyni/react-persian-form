@@ -1,16 +1,12 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
 import { useForm } from "react-hook-form";
-import PersianFieldText from "./components/PersianField/Text";
 import { Trash } from "lucide-react";
+import PersianFieldText from "./components/PersianField/Text";
+import PersianFieldAmount from "./components/PersianField/Amount";
 
 function App() {
-    const [count, setCount] = useState(0);
-
     const formMethods = useForm({
         defaultValues: {
+            amount: 125000,
             date: 1754166600000,
         },
     });
@@ -25,6 +21,14 @@ function App() {
                 label="Text"
                 name="text"
                 placeholder="text"
+                control={formMethods.control}
+                startAdornment={<Trash size={15} />}
+            />
+
+            <PersianFieldAmount
+                label="Amount"
+                name="amount"
+                placeholder="amount"
                 control={formMethods.control}
                 startAdornment={<Trash size={15} />}
             />

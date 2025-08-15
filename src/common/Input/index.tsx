@@ -70,14 +70,18 @@ export default function Input(props: Props) {
                                 controller.fieldState?.error,
                             ),
                         },
-                        startAdornment ? (props.dir === "ltr" ? "!pe-8" : "!ps-8") : "",
-                        endAdornment ? (props.dir === "ltr" ? "!ps-8" : "!pe-8") : "",
+                        { "!ps-8": startAdornment },
+                        { "!pe-8": endAdornment },
                         className,
                     )}
                     {...rest}
                 />
 
-                {startAdornment && <div className="absolute top-1/2 -translate-y-1/2 start-2">{startAdornment}</div>}
+                {startAdornment && (
+                    <div className={clsx("absolute top-1/2 -translate-y-1/2", props.dir === "rtl" ? "start-2" : "end-2")}>
+                        {startAdornment}
+                    </div>
+                )}
 
                 {endAdornment && <div className="absolute top-1/2 -translate-y-1/2 end-2">{endAdornment}</div>}
             </div>
