@@ -21,7 +21,7 @@ function resetValue(value: string): string {
 }
 
 /**
- * @name Email component
+ * @name PersianFieldEmail component
  */
 const PersianFieldEmail = (props: PersianFormFieldProps<HTMLInputElement>) => {
     return <Input type="email" inputMode="email" dir="ltr" formatValue={formatValue} resetValue={resetValue} {...props} />;

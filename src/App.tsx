@@ -4,6 +4,7 @@ import PersianFieldText from "./components/PersianField/Text";
 import PersianFieldAmount from "./components/PersianField/Amount";
 import PersianFieldCellphone from "./components/PersianField/Cellphone";
 import PersianFieldEmail from "./components/PersianField/Email";
+import PersianFieldNumber from "./components/PersianField/Number";
 
 function App() {
     const formMethods = useForm({
@@ -47,6 +48,14 @@ function App() {
                 label="Email"
                 name="email"
                 placeholder="email"
+                control={formMethods.control}
+                startAdornment={<Trash size={15} />}
+            />
+
+            <PersianFieldNumber
+                label="Number"
+                name="number"
+                placeholder="number"
                 control={formMethods.control}
                 startAdornment={<Trash size={15} />}
             />
