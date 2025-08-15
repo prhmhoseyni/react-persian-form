@@ -8,6 +8,7 @@ import PersianFieldNumber from "./components/PersianField/Number";
 import PersianFieldNumeric from "./components/PersianField/Numeric";
 import PersianFieldSelect from "./components/PersianField/Select";
 import PersianFieldTextarea from "./components/PersianField/Textarea";
+import PersianFieldDate from "./components/PersianField/Date";
 
 function App() {
     const formMethods = useForm({
@@ -87,6 +88,14 @@ function App() {
                 label="Textarea"
                 name="textarea"
                 placeholder="textarea"
+                control={formMethods.control}
+                startAdornment={<Trash size={15} />}
+            />
+
+            <PersianFieldDate
+                label="date"
+                name="date"
+                placeholder="date"
                 control={formMethods.control}
                 startAdornment={<Trash size={15} />}
             />
