@@ -3,6 +3,7 @@ import { Trash } from "lucide-react";
 import PersianFieldText from "./components/PersianField/Text";
 import PersianFieldAmount from "./components/PersianField/Amount";
 import PersianFieldCellphone from "./components/PersianField/Cellphone";
+import PersianFieldEmail from "./components/PersianField/Email";
 
 function App() {
     const formMethods = useForm({
@@ -38,6 +39,14 @@ function App() {
                 label="Cellphone"
                 name="cellphone"
                 placeholder="cellphone"
+                control={formMethods.control}
+                startAdornment={<Trash size={15} />}
+            />
+
+            <PersianFieldEmail
+                label="Email"
+                name="email"
+                placeholder="email"
                 control={formMethods.control}
                 startAdornment={<Trash size={15} />}
             />
