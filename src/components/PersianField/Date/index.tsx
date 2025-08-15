@@ -3,7 +3,7 @@ import { useController } from "react-hook-form";
 import DatePicker, { DayValue } from "@hassanmojab/react-modern-calendar-datepicker";
 import { toEnglishDigits } from "msk-utils";
 import moment from "jalali-moment";
-import Input from "../../../common/Input";
+import Input from "~/common/Input";
 import type { PersianFormFieldProps } from "../types";
 import "./index.css";
 
