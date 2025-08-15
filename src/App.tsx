@@ -22,7 +22,7 @@ function App() {
     });
 
     return (
-        <form onSubmit={onSubmit} className="flex flex-col gap-4 p-8">
+        <form onSubmit={onSubmit} className="flex flex-col gap-4 p-8 bg-background-primary">
             <PersianFieldAmount
                 label="Amount"
                 name="amount"

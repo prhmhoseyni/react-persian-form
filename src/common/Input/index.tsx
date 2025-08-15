@@ -60,7 +60,7 @@ export default function Input(props: Props) {
                         controller.field.onChange(event.target.value ? resetValue(event.target.value as string) : null);
                     }}
                     className={clsx(
-                        "w-full h-9 text-label2 text-prose-primary border border-gray-400 outline-0 px-2 rounded-lg placeholder:text-prose-hint transition-all ease-in-out duration-300",
+                        "w-full h-9 text-label2 text-prose-primary border border-gray-200 outline-0 px-2 rounded-lg placeholder:text-prose-hint transition-all ease-in-out duration-300",
                         "disabled:cursor-not-allowed disabled:opacity-40",
                         "focus:border-brand focus:shadow-focus-brand",
                         { "bg-background-secondary": variant === "primary" },
