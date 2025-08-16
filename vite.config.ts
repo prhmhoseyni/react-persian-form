@@ -22,7 +22,7 @@ export default defineConfig({
             formats: ["es", "cjs"],
         },
         rollupOptions: {
-            external: ["react", "react-dom", "msk-utils", "yup"],
+            external: ["react", "react-dom", "msk-utils", "yup", "react-hook-form", "clsx", "lucide-react"],
             output: {
                 globals: {
                     react: "React",
