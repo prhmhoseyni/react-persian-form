@@ -1,5 +1,6 @@
 import * as yup from "yup";
 import { checkNationalId, toPersianDigits } from "msk-utils";
+import { useCallback } from "react";
 
 /**
  * :::: custom validations methods ::::
@@ -83,4 +84,27 @@ yup.setLocale({
     },
 });
 
+const useYupValidationResolver = (validationSchema?: yup.ObjectSchema<any>) =>
+    useCallback(
+        async (data: unknown) => {
+            try {
+                const values = await (validationSchema ?? yup.object({})).validate(data, { abortEarly: false });
+                return { values, errors: {} };
+            } catch (errors) {
+                return {
+                    values: {},
+                    errors: (errors as yup.ValidationError).inner.reduce(
+                        (allErrors, currentError) => ({
+                            ...allErrors,
+                            [currentError.path as string]: { type: currentError.type, message: currentError.message },
+                        }),
+                        {},
+                    ),
+                };
+            }
+        },
+        [validationSchema],
+    );
+
+export { useYupValidationResolver };
 export default yup;
