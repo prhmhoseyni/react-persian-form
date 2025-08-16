@@ -14,19 +14,23 @@ export default defineConfig({
     },
     build: {
         lib: {
-            entry: resolve(__dirname, "src/main.ts"),
+            entry: {
+                index: resolve(__dirname, "src/main.ts"),
+                "resolvers/yup": resolve(__dirname, "src/resolvers/yup.ts"),
+            },
             name: "ReactPersianForm",
-            fileName: (format) => `react-persian-form.${format}.js`,
             formats: ["es", "cjs"],
         },
         rollupOptions: {
-            external: ["react", "react-dom", "msk-utils"],
+            external: ["react", "react-dom", "msk-utils", "yup"],
             output: {
                 globals: {
                     react: "React",
                     "react-dom": "ReactDOM",
                     "msk-utils": "mskUtils",
+                    yup: "Yup",
                 },
+                exports: "named",
             },
         },
     },
