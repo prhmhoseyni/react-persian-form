@@ -12,11 +12,7 @@
     --react-persian-form-prose-hint: 154, 166, 177;
 
     --react-persian-form-brand: 62, 136, 193;
-    --react-persian-form-info: 45, 144, 210;
-    --react-persian-form-success: 21, 151, 84;
-    --react-persian-form-warning: 208, 124, 6;
     --react-persian-form-danger: 197, 50, 17;
-    --react-persian-form-gray: 39, 41, 55;
 }
 
 html.dark {
@@ -29,11 +25,7 @@ html.dark {
     --react-persian-form-prose-hint: 109, 109, 109;
 
     --react-persian-form-brand: 62, 136, 193;
-    --react-persian-form-info: 45, 144, 210;
-    --react-persian-form-success: 21, 151, 84;
-    --react-persian-form-warning: 208, 124, 6;
     --react-persian-form-danger: 197, 50, 17;
-    --react-persian-form-gray: 244, 244, 244;
 }
 
 @theme {
@@ -45,13 +37,13 @@ html.dark {
     --color-prose-hint: rgb(var(--react-persian-form-prose-hint));
 
     --color-brand: rgb(var(--react-persian-form-brand));
-    --color-info: rgb(var(--react-persian-form-info));
-    --color-success: rgb(var(--react-persian-form-success));
-    --color-warning: rgb(var(--react-persian-form-warning));
     --color-danger: rgb(var(--react-persian-form-danger));
-    --color-gray: rgb(var(--react-persian-form-gray));
 
     /** :::: typography :::: */
+    --text-label2: 0.875rem;
+    --text-label2--line-height: 1.225rem;
+    --text-label2--font-weight: 400;
+
     --text-label3: 0.8125rem;
     --text-label3--line-height: 1.1375rem;
     --text-label3--font-weight: 400;
@@ -64,19 +56,35 @@ html.dark {
     --shadow-focus-brand:
         0px 0px 0px 1px rgb(var(--react-persian-form-background-primary)),
         0px 0px 0px 4px rgba(var(--react-persian-form-brand), 0.14);
-    --shadow-focus-info:
-        0px 0px 0px 1px rgb(var(--react-persian-form-background-primary)),
-        0px 0px 0px 4px rgba(var(--react-persian-form-info), 0.14);
-    --shadow-focus-success:
-        0px 0px 0px 1px rgb(var(--react-persian-form-background-primary)),
-        0px 0px 0px 4px rgba(var(--react-persian-form-success), 0.14);
-    --shadow-focus-warning:
-        0px 0px 0px 1px rgb(var(--react-persian-form-background-primary)),
-        0px 0px 0px 4px rgba(var(--react-persian-form-warning), 0.14);
     --shadow-focus-danger:
         0px 0px 0px 1px rgb(var(--react-persian-form-background-primary)),
         0px 0px 0px 4px rgba(var(--react-persian-form-danger), 0.14);
-    --shadow-focus-gray:
-        0px 0px 0px 1px rgb(var(--react-persian-form-background-primary)),
-        0px 0px 0px 4px rgba(var(--react-persian-form-danger), 0.06);
+}
+
+@layer components {
+    .persian-field {
+        @apply w-full h-9 text-label2 text-prose-primary border border-gray-200 outline-0 p-2 rounded-lg placeholder:text-prose-hint transition-all ease-in-out duration-300;
+        @apply disabled:cursor-not-allowed disabled:opacity-40;
+        @apply focus:border-brand focus:shadow-focus-brand;
+    }
+
+    select.persian-field {
+        @apply appearance-none;
+    }
+
+    textarea.persian-field {
+        @apply resize-none !min-h-12;
+    }
+
+    .persian-field:not(.persian-field--secondary) {
+        @apply bg-background-primary;
+    }
+
+    .persian-field.persian-field--secondary {
+        @apply bg-background-secondary;
+    }
+
+    .persian-field.persian-field--error {
+        @apply !border-danger focus:!border-danger focus:!shadow-focus-danger;
+    }
 }

@@ -25,6 +25,7 @@ function App() {
     return (
         <form onSubmit={onSubmit} className="flex flex-col gap-4 p-8 bg-background-primary">
             <PersianFieldAmount
+                variant="secondary"
                 label="Amount"
                 name="amount"
                 placeholder="amount"
@@ -33,6 +34,7 @@ function App() {
             />
 
             <PersianFieldCellphone
+                variant="secondary"
                 label="Cellphone"
                 name="cellphone"
                 placeholder="cellphone"
@@ -41,6 +43,7 @@ function App() {
             />
 
             <PersianFieldEmail
+                variant="secondary"
                 label="Email"
                 name="email"
                 placeholder="email"
@@ -49,6 +52,7 @@ function App() {
             />
 
             <PersianFieldNumber
+                variant="secondary"
                 label="Number"
                 name="number"
                 placeholder="number"
@@ -57,6 +61,7 @@ function App() {
             />
 
             <PersianFieldNumeric
+                variant="secondary"
                 label="Numeric"
                 name="numeric"
                 placeholder="numeric"
@@ -65,6 +70,7 @@ function App() {
             />
 
             <PersianFieldSelect
+                variant="secondary"
                 label="Select"
                 name="select"
                 placeholder="select"
@@ -77,6 +83,7 @@ function App() {
             />
 
             <PersianFieldText
+                variant="secondary"
                 label="Text"
                 name="text"
                 placeholder="text"
@@ -85,6 +92,7 @@ function App() {
             />
 
             <PersianFieldTextarea
+                variant="secondary"
                 label="Textarea"
                 name="textarea"
                 placeholder="textarea"
@@ -93,6 +101,7 @@ function App() {
             />
 
             <PersianFieldDate
+                variant="secondary"
                 label="date"
                 name="date"
                 placeholder="date"
