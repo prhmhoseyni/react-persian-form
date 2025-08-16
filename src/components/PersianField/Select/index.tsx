@@ -12,7 +12,7 @@ const PersianFieldSelect = (props: Props) => {
     const { options, ...rest } = props;
 
     return (
-        <Select {...rest}>
+        <Select dir="rtl" {...rest}>
             {options.map((option) => (
                 <option key={option.value?.toString()} value={option.value}>
                     {option.label}

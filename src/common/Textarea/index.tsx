@@ -61,13 +61,15 @@ export default function Textarea(props: Props) {
                         "persian-field",
                         { "persian-field--secondary": variant === "secondary" },
                         { "persian-field--error": Boolean(controller.fieldState?.error) },
-                        { "!ps-8": startAdornment },
+                        { "!ps-9": startAdornment },
                         className,
                     )}
                     {...rest}
                 />
 
-                {startAdornment && <div className="absolute top-3 start-2">{startAdornment}</div>}
+                {startAdornment && (
+                    <div className={clsx("absolute top-3", props.dir === "rtl" ? "start-3" : "end-3")}>{startAdornment}</div>
+                )}
             </div>
 
             <div className="flex flex-col">

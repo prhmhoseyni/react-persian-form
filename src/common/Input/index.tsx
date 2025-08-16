@@ -63,20 +63,24 @@ export default function Input(props: Props) {
                         "persian-field",
                         { "persian-field--secondary": variant === "secondary" },
                         { "persian-field--error": Boolean(controller.fieldState?.error) },
-                        { "!ps-8": startAdornment },
-                        { "!pe-8": endAdornment },
+                        { "!ps-9": startAdornment },
+                        { "!pe-9": endAdornment },
                         className,
                     )}
                     {...rest}
                 />
 
                 {startAdornment && (
-                    <div className={clsx("absolute top-1/2 -translate-y-1/2", props.dir === "rtl" ? "start-2" : "end-2")}>
+                    <div className={clsx("absolute top-1/2 -translate-y-1/2", props.dir === "rtl" ? "start-3" : "end-3")}>
                         {startAdornment}
                     </div>
                 )}
 
-                {endAdornment && <div className="absolute top-1/2 -translate-y-1/2 end-2">{endAdornment}</div>}
+                {endAdornment && (
+                    <div className={clsx("absolute top-1/2 -translate-y-1/2", props.dir === "rtl" ? "end-3" : "start-3")}>
+                        {endAdornment}
+                    </div>
+                )}
             </div>
 
             <div className="flex flex-col">

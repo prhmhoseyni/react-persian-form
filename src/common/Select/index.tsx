@@ -51,7 +51,7 @@ export default function Select(props: Props) {
                         "persian-field",
                         { "persian-field--secondary": variant === "secondary" },
                         { "persian-field--error": Boolean(controller.fieldState?.error) },
-                        { "!ps-8": startAdornment },
+                        { "!ps-9": startAdornment },
                         className,
                     )}
                     {...rest}
@@ -59,7 +59,11 @@ export default function Select(props: Props) {
                     {children}
                 </select>
 
-                {startAdornment && <div className="absolute top-1/2 -translate-y-1/2 start-2">{startAdornment}</div>}
+                {startAdornment && (
+                    <div className={clsx("absolute top-1/2 -translate-y-1/2", props.dir === "rtl" ? "start-3" : "end-3")}>
+                        {startAdornment}
+                    </div>
+                )}
 
                 <div className="absolute top-1/2 -translate-y-1/2 end-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
