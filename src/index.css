@@ -73,7 +73,7 @@ html.dark {
     }
 
     textarea.persian-field {
-        @apply resize-none;
+        @apply resize-none !p-3;
     }
 
     .persian-field:not(.persian-field--secondary) {
