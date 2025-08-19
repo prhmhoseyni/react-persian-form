@@ -91,20 +91,29 @@ function App() {
                 startAdornment={<Trash size={15} />}
             />
 
-            <PersianFieldTextarea
+            <PersianFieldDate
                 variant="secondary"
-                label="Textarea"
-                name="textarea"
-                placeholder="textarea"
+                label="Start Date"
+                name="startDate"
+                placeholder="startDate"
                 control={formMethods.control}
                 startAdornment={<Trash size={15} />}
             />
 
             <PersianFieldDate
                 variant="secondary"
-                label="date"
-                name="date"
-                placeholder="date"
+                label="End Date"
+                name="endDate"
+                placeholder="endDate"
+                control={formMethods.control}
+                startAdornment={<Trash size={15} />}
+            />
+
+            <PersianFieldTextarea
+                variant="secondary"
+                label="Textarea"
+                name="textarea"
+                placeholder="textarea"
                 control={formMethods.control}
                 startAdornment={<Trash size={15} />}
             />

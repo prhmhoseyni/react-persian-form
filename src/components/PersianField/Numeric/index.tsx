@@ -24,7 +24,7 @@ function resetValue(value: string): string {
  * @name PersianFieldNumeric component
  */
 const PersianFieldNumeric = (props: PersianFormFieldProps<HTMLInputElement>) => {
-    return <Input type="text" inputMode="text" dir="ltr" formatValue={formatValue} resetValue={resetValue} {...props} />;
+    return <Input type="text" inputMode="numeric" dir="ltr" formatValue={formatValue} resetValue={resetValue} {...props} />;
 };
 
 export default PersianFieldNumeric;
