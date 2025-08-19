@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@hassanmojab/react-modern-calendar-datepicker": "^3.1.7",
+    "@hookform/resolvers": "^5.2.1",
     "@tailwindcss/vite": "^4.1.12",
     "clsx": "^2.1.1",
     "jalali-moment": "^3.3.11",

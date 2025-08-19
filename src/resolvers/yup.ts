@@ -1,9 +1,12 @@
 import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { checkNationalId, toPersianDigits } from "msk-utils";
-import { useCallback } from "react";
 
 /**
- * :::: custom validations methods ::::
+ * =================================================================
+ * :::: CUSTOM VALIDATIONS ::::
+ * =================================================================
+ * In Yup, we create reusable schemas or refinements instead of extending the base schema.
  */
 declare module "yup" {
     interface StringSchema {
@@ -60,7 +63,10 @@ yup.addMethod<yup.StringSchema>(yup.string, "postalCode", function () {
 });
 
 /**
- * :::: custom yup config ::::
+ * =================================================================
+ * :::: CUSTOM CONFIG ::::
+ * =================================================================
+ * We set a global error map to translate Yup's default error messages into Persian.
  */
 yup.setLocale({
     mixed: {
@@ -84,27 +90,17 @@ yup.setLocale({
     },
 });
 
-const useYupValidationResolver = (validationSchema?: yup.ObjectSchema<any>) =>
-    useCallback(
-        async (data: unknown) => {
-            try {
-                const values = await (validationSchema ?? yup.object({})).validate(data, { abortEarly: false });
-                return { values, errors: {} };
-            } catch (errors) {
-                return {
-                    values: {},
-                    errors: (errors as yup.ValidationError).inner.reduce(
-                        (allErrors, currentError) => ({
-                            ...allErrors,
-                            [currentError.path as string]: { type: currentError.type, message: currentError.message },
-                        }),
-                        {},
-                    ),
-                };
-            }
-        },
-        [validationSchema],
-    );
+/**
+ * =================================================================
+ * :::: REACT HOOK FORM RESOLVER ::::
+ * =================================================================
+ * The official `@hookform/resolvers/yup` package provides the
+ * `yupResolver`. It's highly optimized and the standard way to
+ * use Zod with react-hook-form.
+ *
+ * The original `useYupValidationResolver` hook can be replaced directly by `yupResolver` in your `useForm` call.
+ */
+const useYupValidationResolver = (validationSchema: yup.ObjectSchema<any>) => yupResolver(validationSchema);
 
 export { useYupValidationResolver };
 export default yup;
