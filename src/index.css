@@ -93,6 +93,6 @@ html.dark {
     }
 
     .persian-field.persian-field--error {
-        @apply !border-react-persian-formg-danger focus:!border-react-persian-formg-danger focus:!shadow-react-persian-form-focus-danger;
+        @apply !border-react-persian-form-danger focus:!border-react-persian-form-danger focus:!shadow-react-persian-form-focus-danger;
     }
 }

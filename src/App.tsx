@@ -8,8 +8,9 @@ import PersianFieldNumeric from "./components/PersianField/Numeric";
 import PersianFieldSelect from "./components/PersianField/Select";
 import PersianFieldTextarea from "./components/PersianField/Textarea";
 import PersianFieldDate from "./components/PersianField/Date";
-import "./datepicker.css";
 import yup, { useYupValidationResolver } from "./resolvers/yup";
+import "./datepicker.css";
+import PersianFieldBankCard from "./components/PersianField/BankCard";
 
 function App() {
     const resolver = useYupValidationResolver(
@@ -114,6 +115,14 @@ function App() {
                 label="Textarea"
                 name="textarea"
                 placeholder="textarea"
+                control={formMethods.control}
+            />
+
+            <PersianFieldBankCard
+                variant="secondary"
+                label="Bank Card"
+                name="bankCard"
+                placeholder="Bank Card"
                 control={formMethods.control}
             />
 
