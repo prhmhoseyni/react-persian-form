@@ -5,7 +5,6 @@ import { toEnglishDigits } from "msk-utils";
 import moment from "jalali-moment";
 import Input from "~/common/Input";
 import type { PersianFormFieldProps } from "../types";
-import "./datepicker.css";
 
 /**
  * @description helpers methods

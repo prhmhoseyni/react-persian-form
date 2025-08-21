@@ -1,4 +1,4 @@
-import { type InputHTMLAttributes, type DetailedHTMLProps, type ReactNode, useState, useEffect } from "react";
+import { type InputHTMLAttributes, type DetailedHTMLProps, useState, useEffect } from "react";
 import { type Control, useController, useWatch } from "react-hook-form";
 import clsx from "clsx";
 
@@ -13,8 +13,6 @@ interface Props extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>,
     formatValue: (value: string) => string;
     resetValue: (value: string) => unknown;
     variant?: "primary" | "secondary";
-    startAdornment?: ReactNode;
-    endAdornment?: ReactNode;
 }
 
 /**
@@ -29,8 +27,6 @@ export default function Input(props: Props) {
         formatValue,
         resetValue,
         variant = "primary",
-        startAdornment,
-        endAdornment,
         className = "",
         ...rest
     } = props;
@@ -46,46 +42,34 @@ export default function Input(props: Props) {
 
     return (
         <div className="flex flex-col text-start gap-2">
-            <label htmlFor={props.name} className="text-prose-primary text-label3">
+            <label htmlFor={props.name} className="text-react-persian-form-prose-primary text-react-persian-form-label">
                 {label}
             </label>
 
-            <div className="w-full relative">
-                <input
-                    ref={controller.field.ref}
-                    id={name}
-                    name={name}
-                    value={value}
-                    onChange={(event) => {
-                        controller.field.onChange(event.target.value ? resetValue(event.target.value as string) : null);
-                    }}
-                    className={clsx(
-                        "persian-field",
-                        { "persian-field--secondary": variant === "secondary" },
-                        { "persian-field--error": Boolean(controller.fieldState?.error) },
-                        { "!ps-9": startAdornment },
-                        { "!pe-9": endAdornment },
-                        className,
-                    )}
-                    {...rest}
-                />
-
-                {startAdornment && (
-                    <div className={clsx("absolute top-1/2 -translate-y-1/2", props.dir === "rtl" ? "start-3" : "end-3")}>
-                        {startAdornment}
-                    </div>
+            <input
+                ref={controller.field.ref}
+                id={name}
+                name={name}
+                value={value}
+                onChange={(event) => {
+                    controller.field.onChange(event.target.value ? resetValue(event.target.value as string) : null);
+                }}
+                className={clsx(
+                    "persian-field",
+                    { "persian-field--secondary": variant === "secondary" },
+                    { "persian-field--error": Boolean(controller.fieldState?.error) },
+                    // { "!ps-9": startAdornment },
+                    // { "!pe-9": endAdornment },
+                    className,
                 )}
-
-                {endAdornment && (
-                    <div className={clsx("absolute top-1/2 -translate-y-1/2", props.dir === "rtl" ? "end-3" : "start-3")}>
-                        {endAdornment}
-                    </div>
-                )}
-            </div>
+                {...rest}
+            />
 
             <div className="flex flex-col">
-                <p className="text-prose-hint text-caption2">{helperMessage}</p>
-                <p className="text-prose-danger text-caption2">{controller.fieldState?.error?.message}</p>
+                <p className="text-react-persian-form-prose-hint text-react-persian-form-caption">{helperMessage}</p>
+                <p className="text-react-persian-form-danger text-react-persian-form-caption">
+                    {controller.fieldState?.error?.message}
+                </p>
             </div>
         </div>
     );

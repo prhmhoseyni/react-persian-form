@@ -30,46 +30,54 @@ html.dark {
 
 @theme {
     /** :::: colors :::: */
-    --color-background-primary: rgb(var(--react-persian-form-background-primary));
-    --color-background-secondary: rgb(var(--react-persian-form-background-secondary));
+    --color-react-persian-form-background-primary: rgb(var(--react-persian-form-background-primary));
+    --color-react-persian-form-background-secondary: rgb(var(--react-persian-form-background-secondary));
 
-    --color-prose-primary: rgb(var(--react-persian-form-prose-primary));
-    --color-prose-hint: rgb(var(--react-persian-form-prose-hint));
+    --color-react-persian-form-prose-primary: rgb(var(--react-persian-form-prose-primary));
+    --color-react-persian-form-prose-hint: rgb(var(--react-persian-form-prose-hint));
 
-    --color-brand: rgb(var(--react-persian-form-brand));
-    --color-danger: rgb(var(--react-persian-form-danger));
+    --color-react-persian-form-brand: rgb(var(--react-persian-form-brand));
+    --color-react-persian-form-danger: rgb(var(--react-persian-form-danger));
 
     /** :::: typography :::: */
-    --text-label2: 0.875rem;
-    --text-label2--line-height: 1.225rem;
-    --text-label2--font-weight: 400;
+    --text-react-persian-form-field: 0.875rem;
+    --text-react-persian-form-field--line-height: 1.225rem;
+    --text-react-persian-form-field--font-weight: 400;
 
-    --text-label3: 0.8125rem;
-    --text-label3--line-height: 1.1375rem;
-    --text-label3--font-weight: 400;
+    --text-react-persian-form-label: 0.8125rem;
+    --text-react-persian-form-label--line-height: 1.1375rem;
+    --text-react-persian-form-label--font-weight: 400;
 
-    --text-caption2: 0.6875rem;
-    --text-caption2--line-height: 1.125rem;
-    --text-caption2--font-weight: 400;
+    --text-react-persian-form-caption: 0.6875rem;
+    --text-react-persian-form-caption--line-height: 1.125rem;
+    --text-react-persian-form-caption--font-weight: 400;
 
     /** :::: shadows :::: */
-    --shadow-focus-brand:
+    --shadow-react-persian-form-focus-brand:
         0px 0px 0px 1px rgb(var(--react-persian-form-background-primary)),
         0px 0px 0px 4px rgba(var(--react-persian-form-brand), 0.14);
-    --shadow-focus-danger:
+    --shadow-react-persian-form-focus-danger:
         0px 0px 0px 1px rgb(var(--react-persian-form-background-primary)),
         0px 0px 0px 4px rgba(var(--react-persian-form-danger), 0.14);
 }
 
 @layer components {
     .persian-field {
-        @apply w-full min-h-12 text-label2 text-prose-primary border border-gray-200 outline-0 px-3 rounded-lg placeholder:text-prose-hint transition-all ease-in-out duration-300;
+        @apply w-full min-h-12 text-react-persian-form-field text-react-persian-form-prose-primary border border-gray-200 outline-0 px-3 rounded-lg placeholder:text-react-persian-form-prose-hint transition-all ease-in-out duration-300;
         @apply disabled:cursor-not-allowed disabled:opacity-40;
-        @apply focus:border-brand focus:shadow-focus-brand;
+        @apply focus:border-react-persian-form-brand focus:shadow-react-persian-form-focus-brand;
     }
 
     select.persian-field {
-        @apply appearance-none;
+        /* :::: Firefox :::: */
+        -moz-appearance: none;
+        /* :::: Safari and Chrome :::: */
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='18' viewBox='0 -960 960 960' width='18'><path d='M480-345 240-585l43-43 197 198 197-197 43 43-240 239Z' /></svg>");
+        background-repeat: no-repeat;
+        background-position-x: 0.5rem;
+        background-position-y: 0.9rem;
     }
 
     textarea.persian-field {
@@ -77,14 +85,14 @@ html.dark {
     }
 
     .persian-field:not(.persian-field--secondary) {
-        @apply bg-background-primary;
+        @apply bg-react-persian-form-background-primary;
     }
 
     .persian-field.persian-field--secondary {
-        @apply bg-background-secondary;
+        @apply bg-react-persian-form-background-secondary;
     }
 
     .persian-field.persian-field--error {
-        @apply !border-danger focus:!border-danger focus:!shadow-focus-danger;
+        @apply !border-react-persian-formg-danger focus:!border-react-persian-formg-danger focus:!shadow-react-persian-form-focus-danger;
     }
 }

@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, ReactNode } from "react";
+import type { InputHTMLAttributes } from "react";
 import type { Control } from "react-hook-form";
 
 export interface PersianFormFieldProps<T> extends InputHTMLAttributes<T> {
@@ -7,6 +7,4 @@ export interface PersianFormFieldProps<T> extends InputHTMLAttributes<T> {
     name: string;
     control: Control<any>;
     variant?: "primary" | "secondary";
-    startAdornment?: ReactNode;
-    endAdornment?: ReactNode;
 }
