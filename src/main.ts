@@ -1,6 +1,7 @@
 import "./index.css";
 
 export { default as PersianFieldAmount } from "./components/PersianField/Amount";
+export { default as PersianFieldBankCard } from "./components/PersianField/BankCard";
 export { default as PersianFieldCellphone } from "./components/PersianField/Cellphone";
 export { default as PersianFieldDate } from "./components/PersianField/Date";
 export { default as PersianFieldEmail } from "./components/PersianField/Email";
