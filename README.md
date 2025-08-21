@@ -132,6 +132,6 @@ Our custom Yup resolver extends Yup with useful validation methods and Persian e
 - `space(count?: number)`: Checks for a specific number of spaces.
 - `halfSpace(count?: number)`: Checks for a specific number of half-spaces (نیم‌فاصله).
 
-### 🤝 Contributing
+## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/prhmhoseyni/react-persian-form/issues).
