@@ -11,6 +11,7 @@ import PersianFieldDate from "./components/PersianField/Date";
 import yup, { useYupValidationResolver } from "./resolvers/yup";
 import "./datepicker.css";
 import PersianFieldBankCard from "./components/PersianField/BankCard";
+import PersianFieldSheba from "./components/PersianField/Sheba";
 
 function App() {
     const resolver = useYupValidationResolver(
@@ -123,6 +124,14 @@ function App() {
                 label="Bank Card"
                 name="bankCard"
                 placeholder="Bank Card"
+                control={formMethods.control}
+            />
+
+            <PersianFieldSheba
+                variant="secondary"
+                label="Sheba"
+                name="sheba"
+                placeholder="Sheba"
                 control={formMethods.control}
             />
 
