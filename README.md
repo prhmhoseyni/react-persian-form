@@ -41,18 +41,9 @@ import "react-persian-form/styles";
 ```tsx
 import { useForm } from "react-hook-form";
 import {
-    useYupValidationResolver,
-    PersianFieldAmount,
-    PersianFieldBankCard,
-    PersianFieldCellphone,
-    PersianFieldDate,
-    PersianFieldEmail,
-    PersianFieldNumber,
-    PersianFieldNumeric,
-    PersianFieldSelect,
-    PersianFieldSheba,
     PersianFieldText,
-    PersianFieldTextarea,
+    PersianFieldCellphone,
+    PersianFieldNumeric,
 } from "react-persian-form";
 import yup, { useYupValidationResolver } from "react-persian-form/resolvers/yup";
 
