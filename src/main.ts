@@ -11,3 +11,11 @@ export { default as PersianFieldSelect } from "./components/PersianField/Select"
 export { default as PersianFieldSheba } from "./components/PersianField/Sheba";
 export { default as PersianFieldText } from "./components/PersianField/Text";
 export { default as PersianFieldTextarea } from "./components/PersianField/Textarea";
+
+export {
+    default as Wizard,
+    type WizardProps,
+    type WizardStep,
+    type WizardStepProps,
+    WizardStepStatus,
+} from "./components/Wizard";
