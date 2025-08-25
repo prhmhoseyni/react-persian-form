@@ -1,6 +1,6 @@
 <center>
 
-<img src="./assets/logo.png" alt="react-persian-form logo" width="120"/>
+<img src="https://raw.githubusercontent.com/prhmhoseyni/react-persian-form/main/assets/logo.png" alt="react-persian-form logo" width="120"/>
 
 # React Persian Form
 
