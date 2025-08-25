@@ -64,8 +64,10 @@ export default function Textarea(props: Props) {
             />
 
             <div>
-                <p className="react-persian-form__helper-message">{helperMessage}</p>
-                <p className="react-persian-form__error-message">{controller.fieldState?.error?.message}</p>
+                {helperMessage && <p className="react-persian-form__helper-message">{helperMessage}</p>}
+                {controller.fieldState?.error?.message && (
+                    <p className="react-persian-form__error-message">{controller.fieldState.error.message}</p>
+                )}
             </div>
         </div>
     );
