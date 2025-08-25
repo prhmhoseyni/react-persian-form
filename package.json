@@ -1,6 +1,6 @@
 {
   "name": "react-persian-form",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.cjs",
@@ -37,7 +37,6 @@
   "dependencies": {
     "@hassanmojab/react-modern-calendar-datepicker": "^3.1.7",
     "@hookform/resolvers": "^5.2.1",
-    "@tailwindcss/vite": "^4.1.12",
     "clsx": "^2.1.1",
     "jalali-moment": "^3.3.11",
     "lucide-react": "^0.539.0",
@@ -45,7 +44,6 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.62.0",
-    "tailwindcss": "^4.1.12",
     "vite-plugin-dts": "^4.5.4",
     "yup": "^1.7.0"
   },

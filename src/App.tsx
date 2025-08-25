@@ -9,9 +9,10 @@ import PersianFieldSelect from "./components/PersianField/Select";
 import PersianFieldTextarea from "./components/PersianField/Textarea";
 import PersianFieldDate from "./components/PersianField/Date";
 import yup, { useYupValidationResolver } from "./resolvers/yup";
-import "./datepicker.css";
 import PersianFieldBankCard from "./components/PersianField/BankCard";
 import PersianFieldSheba from "./components/PersianField/Sheba";
+import "./normalize.css";
+import "./datepicker.css";
 
 function App() {
     const resolver = useYupValidationResolver(
@@ -22,7 +23,7 @@ function App() {
     );
     const formMethods = useForm({
         defaultValues: {
-            amount: 125000,
+            number: 125000,
             date: 1754166600000,
         },
         resolver,
@@ -33,7 +34,7 @@ function App() {
     });
 
     return (
-        <form onSubmit={onSubmit} className="flex flex-col gap-4 p-8 bg-react-persian-form-background-primary">
+        <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem", padding: "1rem" }}>
             <PersianFieldAmount
                 variant="secondary"
                 label="Amount"

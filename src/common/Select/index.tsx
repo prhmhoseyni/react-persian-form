@@ -22,8 +22,8 @@ export default function Select(props: Props) {
     const controller = useController({ name, control });
 
     return (
-        <div className="flex flex-col text-start gap-2">
-            <label htmlFor={props.name} className="text-react-persian-form-prose-primary text-react-persian-form-label">
+        <div className="react-persian-form__wrapper">
+            <label htmlFor={props.name} className="react-persian-form__label">
                 {label}
             </label>
 
@@ -36,9 +36,9 @@ export default function Select(props: Props) {
                     controller.field.onChange(event.target.value);
                 }}
                 className={clsx(
-                    "persian-field",
-                    { "persian-field--secondary": variant === "secondary" },
-                    { "persian-field--error": Boolean(controller.fieldState?.error) },
+                    "react-persian-form__form-control",
+                    { "react-persian-form__form-control--secondary": variant === "secondary" },
+                    { "react-persian-form__form-control--error": Boolean(controller.fieldState?.error) },
                     className,
                 )}
                 {...rest}
@@ -46,11 +46,9 @@ export default function Select(props: Props) {
                 {children}
             </select>
 
-            <div className="flex flex-col">
-                <p className="text-react-persian-form-prose-hint text-react-persian-form-caption">{helperMessage}</p>
-                <p className="text-react-persian-form-danger text-react-persian-form-caption">
-                    {controller.fieldState?.error?.message}
-                </p>
+            <div>
+                <p className="react-persian-form__helper-message">{helperMessage}</p>
+                <p className="react-persian-form__error-message">{controller.fieldState?.error?.message}</p>
             </div>
         </div>
     );

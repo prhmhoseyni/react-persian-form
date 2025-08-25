@@ -68,7 +68,7 @@ const PersianFieldDate = (props: Props) => {
             renderInput={render}
             maximumDate={maxDate ? convertTimestamp2DayValue(maxDate) : undefined}
             minimumDate={minDate ? convertTimestamp2DayValue(minDate) : undefined}
-            colorPrimary="rgb(var(--react-persian-form-brand))"
+            colorPrimary="rgb(var(--react-persian-form-color-primary))"
             onChange={(value) => {
                 if (value) {
                     controller.field.onChange(convertDayValue2Timestamp(value));
