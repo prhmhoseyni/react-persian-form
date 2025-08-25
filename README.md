@@ -1,4 +1,10 @@
+<center>
+
+<img src="./assets/logo.png" alt="react-persian-form logo" width="120"/>
+
 # React Persian Form
+
+</center>
 
 A comprehensive collection of React components and Yup validation helpers tailored for Persian developers. This package is built on top of **React** and **React Hook Form** to simplify and accelerate the process of building forms with common Persian-specific fields and validation rules.
 
@@ -103,34 +109,6 @@ function MyForm() {
 
 export default MyForm;
 ```
-
-### 🧩 Components
-
-This package provides the following components:
-
-- `PersianFieldAmount` - For handling currency and amount inputs.
-- `PersianFieldBankCard` - For bank card number input.
-- `PersianFieldCellphone` - For Iranian cellphone number input.
-- `PersianFieldDate` - A date picker localized.
-- `PersianFieldEmail` - A standard email input field.
-- `PersianFieldNumber` - For general number inputs.
-- `PersianFieldNumeric` - For numeric inputs with formatting (e.g., separators).
-- `PersianFieldSelect` - A customizable select/dropdown component.
-- `PersianFieldSheba` - For Iranian bank account Sheba (IBAN) numbers.
-- `PersianFieldText` - A general-purpose text input field.
-- `PersianFieldTextarea` - A standard textarea field.
-
-### ✅ Validation (Custom Yup Methods)
-
-Our custom Yup resolver extends Yup with useful validation methods and Persian error messages.
-
-- `cellphone()`: Validates Iranian cellphone numbers (e.g., 09123456789).
-- `nationalId()`: Validates Iranian national ID codes (کد ملی).
-- `postalCode()`: Validates 10-digit Iranian postal codes.
-- `onlyFaCharacters()`: Ensures the field contains only Persian alphabet characters.
-- `onlyFaCharactersAndDigits()`: Allows only Persian alphabet characters and digits.
-- `space(count?: number)`: Checks for a specific number of spaces.
-- `halfSpace(count?: number)`: Checks for a specific number of half-spaces (نیم‌فاصله).
 
 ## 🤝 Contributing
 
