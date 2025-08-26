@@ -1,6 +1,6 @@
 {
   "name": "react-persian-form",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.cjs",
@@ -19,7 +19,7 @@
     "yup",
     "validation"
   ],
-  "homepage": "https://react-persian-form-docs-110mku6b2-prhmhoseynis-projects.vercel.app",
+  "homepage": "https://react-persian-form.vercel.app",
   "exports": {
     ".": {
       "import": "./dist/index.js",
