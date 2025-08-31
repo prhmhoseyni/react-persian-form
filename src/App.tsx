@@ -19,6 +19,8 @@ function App() {
         yup.object({
             amount: yup.string().required(),
             textarea: yup.string().required(),
+            sheba: yup.string().required().sheba(),
+            bankCard: yup.string().required().bankCard(),
         }),
     );
     const formMethods = useForm({

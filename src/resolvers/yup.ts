@@ -11,6 +11,8 @@ import { checkNationalId, toPersianDigits } from "msk-utils";
 declare module "yup" {
     interface StringSchema {
         cellphone(): this;
+        bankCard(): this;
+        sheba(): this;
         halfSpace(count?: number): this;
         nationalId(): this;
         onlyFaCharactersAndDigits(): this;
@@ -23,6 +25,16 @@ declare module "yup" {
 yup.addMethod<yup.StringSchema>(yup.string, "cellphone", function () {
     const regExp = new RegExp(/^09\d{9}$/g);
     return this.matches(regExp, "شماره تلفن همراه وارد شده معتبر نمی‌باشد.");
+});
+
+yup.addMethod<yup.StringSchema>(yup.string, "bankCard", function () {
+    const regExp = new RegExp(/^\d{16}$/g);
+    return this.matches(regExp, "شماره کارت وارد شده معتبر نمی‌باشد.");
+});
+
+yup.addMethod<yup.StringSchema>(yup.string, "sheba", function () {
+    const regExp = new RegExp(/^\d{24}$/g);
+    return this.matches(regExp, "شماره شبا وارد شده معتبر نمی‌باشد.");
 });
 
 yup.addMethod<yup.StringSchema>(yup.string, "space", function (count?: number) {
